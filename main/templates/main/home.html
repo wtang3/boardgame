@@ -1,20 +1,13 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Home</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="static/main/app.css"/>
-    <link rel="stylesheet" href="static/main.css"/>
-  </head>
-  <body>
-    <div id="main">
-      <p>Hello from Home</p>
-      {% if user.is_authenticated %}
-        <p> Hi, {{user.username}}! </p>
-        <a href="{% url 'boardgames_logout' %}">logout</a>
-      {% else %}
-        <a href="{% url 'boardgames_login' %}">login</a>
-      {% endif %}
-    </div>
-  </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+  
+  <p>Hello from Home</p>
+  {% if user.is_authenticated %}
+    <p> Hi, {{user.username}}! </p>
+    <a href="{% url 'boardgames_logout' %}">logout</a>
+  {% else %}
+    <a href="{% url 'boardgames_login' %}">login</a>
+  {% endif %}
+
+{% endblock content %}

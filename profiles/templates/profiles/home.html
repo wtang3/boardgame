@@ -1,6 +1,9 @@
-{% if user.is_authenticated %}
-  <p> Hi, {{user.username}}! </p>
-  <a href="{% url 'boardgames_logout' %}">logout</a>
-{% else %}
-  <a href="{% url 'boardgames_login' %}">login</a>
-{% endif %}
+{% extends "base.html" %}
+{% block content %}
+  {% if user.is_authenticated %}
+    <p> Hi, {{user.username}}! </p>
+    <a href="{% url 'boardgames_logout' %}">logout</a>
+  {% else %}
+    <a href="{% url 'boardgames_login' %}">login</a>
+  {% endif %}
+{% endblock content %}
