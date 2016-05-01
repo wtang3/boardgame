@@ -1,0 +1,6 @@
+<form role="form" class="form-horizontal" method="post" action="{% url 'boardgames_login' %}">
+    {% csrf_token %}
+    {{ form }}
+    <input class="btn btn-primary" type="submit" value="Login" />
+    <input type="hidden" name="next" value="{{ next }}" />
+</form>

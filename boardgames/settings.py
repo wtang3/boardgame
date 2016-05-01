@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'tictactoe'
+    'tictactoe',
+    'profiles'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -56,7 +57,9 @@ ROOT_URLCONF = 'boardgames.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+             (os.path.join(BASE_DIR,'templates/')),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,3 +127,9 @@ STATICFILES_DIRS = [
     (os.path.join(BASE_DIR,'static/')),
     (os.path.join(BASE_DIR,'main/templates/static/')),
 ]
+
+LOGIN_URL = 'boardgames_login'
+LOGOUT_URL = 'boardgames_logout'
+
+#LOGIN_REDIRECT_URL = 'boardgames_home'
+LOGIN_REDIRECT_URL = 'profiles_home'
