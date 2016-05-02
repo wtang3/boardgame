@@ -3,11 +3,13 @@
 {% block content %}
   
   <p>Hello from Home</p>
-  {% if user.is_authenticated %}
+  {% comment %}{% if user.is_authenticated %}
     <p> Hi, {{user.username}}! </p>
     <a href="{% url 'boardgames_logout' %}">logout</a>
   {% else %}
     <a href="{% url 'boardgames_login' %}">login</a>
-  {% endif %}
+  {% endif %} {% endcomment %}
+
+  <a href="{% url 'boardgames_login' %}">login</a>
 
 {% endblock content %}

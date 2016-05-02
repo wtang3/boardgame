@@ -1,9 +1,18 @@
 {% extends "base.html" %}
+
+{{% block title %}
+Overview for {{ user.username }}
+{% endblock title %}
+
+
 {% block content %}
-  {% if user.is_authenticated %}
-    <p> Hi, {{user.username}}! </p>
-    <a href="{% url 'boardgames_logout' %}">logout</a>
-  {% else %}
-    <a href="{% url 'boardgames_login' %}">login</a>
-  {% endif %}
+    <div class="well col-sm-6">
+        <a href="{% url 'boardgames_logout' %}">logout</a>
+        {% include "tictactoe/game_list_snippet.html" with header="Games waiting for your move" games_list=waiting_games %}        
+        {% include "tictactoe/game_list_snippet.html" with header="Other active games" games_list=other_games %}
+        {% include "tictactoe/game_list_snippet.html" with header="Finished games" games_list=finished_games %}        
+    </div>
+
+
+    
 {% endblock content %}
