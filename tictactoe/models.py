@@ -37,3 +37,10 @@ class Move(models.Model):
     comment = models.CharField(max_length=300)
     game = models.ForeignKey(Game)
 
+class Invitation(models.Model):
+    from_user = models.ForeignKey(User, related_name="invitation_sent")
+    to_user = models.ForeignKey(User, related_name="invitation_received")
+    message = models.CharField(max_length=300)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+

@@ -27,6 +27,9 @@ urlpatterns = [
     #profiles
     url(r'^user/',include('profiles.urls')),
 
+    #tictactoe
+    url(r'^tictactoe/', include('tictactoe.urls')),
+
     #login/logout views
     url(r'^login/$', login,
     {'template_name': 'login.html'},

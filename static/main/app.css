@@ -2,6 +2,6 @@ body{
   background-color:black;
 }
 
-label{
+label, li{
   color: white;
 }
