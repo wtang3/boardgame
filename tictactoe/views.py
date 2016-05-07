@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from .models import Invitation
@@ -10,7 +10,11 @@ def new_invitation(request):
         form = InvitationForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('user_home')
+            return redirect('profiles_home')
     else:
         form = InvitationForm()
-    return render(request, "tictactoe/new_invitation.html", {'form', form})
+
+    context = {
+      'form' : form
+    }
+    return render(request, "tictactoe/new_invitation.html", context)

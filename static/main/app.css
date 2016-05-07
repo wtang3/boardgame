@@ -1,7 +1,7 @@
 body{
-  background-color:black;
+  background-color:white;
 }
 
-label, li{
-  color: white;
+label{
+  color: black;
 }

@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
     <div class="well col-md-6">
       <p> Please select a user you want to invite to play </p>
       <form action="" method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ form | crispy }}
         <button type="submit">Send</button>
       </form>
     </div>
