@@ -22,7 +22,7 @@ Overview for {{ user.username }}
         <h3>Open Invitations</h3>
         <div class="list-group">
           {% for inv in user_invitations %}
-            <a class="list-group-item" href="#">
+            <a class="list-group-item" href="{% url 'tictactoe_accept_invitation' pk=inv.id %}">
               {{ inv.from_user.username }} has invited you to a game
             </a>
           {% endfor%}
