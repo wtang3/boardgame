@@ -4,4 +4,5 @@ from .models import Invitation
 class InvitationForm(ModelForm):
     class Meta:
         model = Invitation
-        fields = '__all__'
+        #fields = ["to_user", "message"]
+        exclude = ["from_user"]

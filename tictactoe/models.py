@@ -39,8 +39,9 @@ class Move(models.Model):
 
 class Invitation(models.Model):
     from_user = models.ForeignKey(User, related_name="invitations_sent")
-    to_user = models.ForeignKey(User, related_name="invitations_received")
-    message = models.CharField(max_length=300)
+    to_user = models.ForeignKey(User, related_name="invitations_received",
+                                verbose_name = "User to Invite")
+    message = models.CharField(max_length=300, blank = True)
     timestamp = models.DateTimeField(auto_now_add=True)
 
 
